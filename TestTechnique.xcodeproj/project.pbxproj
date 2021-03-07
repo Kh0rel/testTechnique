@@ -18,6 +18,7 @@
 		8885173425F27229000F4270 /* OffersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8885172F25F27229000F4270 /* OffersInteractor.swift */; };
 		8885173525F27229000F4270 /* OffersWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8885173025F27229000F4270 /* OffersWireframe.swift */; };
 		888D512E25F40B2B00994577 /* LargeContentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888D512D25F40B2B00994577 /* LargeContentCollectionViewCell.swift */; };
+		88D97CDD25F4515C00461112 /* UIButton+BlurEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D97CDC25F4515C00461112 /* UIButton+BlurEffect.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		8885172F25F27229000F4270 /* OffersInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffersInteractor.swift; sourceTree = "<group>"; };
 		8885173025F27229000F4270 /* OffersWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffersWireframe.swift; sourceTree = "<group>"; };
 		888D512D25F40B2B00994577 /* LargeContentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeContentCollectionViewCell.swift; sourceTree = "<group>"; };
+		88D97CDC25F4515C00461112 /* UIButton+BlurEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+BlurEffect.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 		8885172B25F26A1A000F4270 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				88D97CCD25F43FAC00461112 /* Extensions */,
 				88D97CBC25F4243A00461112 /* Protocols */,
 			);
 			path = Common;
@@ -169,6 +172,14 @@
 			);
 			path = Views;
 			sourceTree = "<group>";
+		88D97CCD25F43FAC00461112 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				88D97CDC25F4515C00461112 /* UIButton+BlurEffect.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -303,6 +314,7 @@
 				8885173125F27229000F4270 /* OffersProtocols.swift in Sources */,
 				8885173525F27229000F4270 /* OffersWireframe.swift in Sources */,
 				8885173425F27229000F4270 /* OffersInteractor.swift in Sources */,
+				88D97CDD25F4515C00461112 /* UIButton+BlurEffect.swift in Sources */,
 				888516EF25F26788000F4270 /* AppDelegate.swift in Sources */,
 				88D97CB825F41F0600461112 /* DescriptionCollectionViewCell.swift in Sources */,
 				888D512E25F40B2B00994577 /* LargeContentCollectionViewCell.swift in Sources */,
