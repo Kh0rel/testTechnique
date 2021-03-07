@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		888516EF25F26788000F4270 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888516EE25F26788000F4270 /* AppDelegate.swift */; };
-		888516F125F26788000F4270 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888516F025F26788000F4270 /* SceneDelegate.swift */; };
-		888516F325F26788000F4270 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888516F225F26788000F4270 /* ViewController.swift */; };
-		888516F625F26788000F4270 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 888516F425F26788000F4270 /* Main.storyboard */; };
 		888516F825F26789000F4270 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 888516F725F26789000F4270 /* Assets.xcassets */; };
 		888516FB25F26789000F4270 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 888516F925F26789000F4270 /* LaunchScreen.storyboard */; };
 		8885170625F2678A000F4270 /* TestTechniqueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8885170525F2678A000F4270 /* TestTechniqueTests.swift */; };
@@ -37,9 +34,6 @@
 /* Begin PBXFileReference section */
 		888516EB25F26788000F4270 /* TestTechnique.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTechnique.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		888516EE25F26788000F4270 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		888516F025F26788000F4270 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		888516F225F26788000F4270 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		888516F525F26788000F4270 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		888516F725F26789000F4270 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		888516FA25F26789000F4270 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		888516FC25F26789000F4270 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -100,9 +94,6 @@
 			isa = PBXGroup;
 			children = (
 				888516EE25F26788000F4270 /* AppDelegate.swift */,
-				888516F025F26788000F4270 /* SceneDelegate.swift */,
-				888516F225F26788000F4270 /* ViewController.swift */,
-				888516F425F26788000F4270 /* Main.storyboard */,
 				888516F725F26789000F4270 /* Assets.xcassets */,
 				888516F925F26789000F4270 /* LaunchScreen.storyboard */,
 				888516FC25F26789000F4270 /* Info.plist */,
@@ -233,7 +224,6 @@
 			files = (
 				888516FB25F26789000F4270 /* LaunchScreen.storyboard in Resources */,
 				888516F825F26789000F4270 /* Assets.xcassets in Resources */,
-				888516F625F26788000F4270 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +250,7 @@
 			files = (
 				888516F325F26788000F4270 /* ViewController.swift in Sources */,
 				888516EF25F26788000F4270 /* AppDelegate.swift in Sources */,
-				888516F125F26788000F4270 /* SceneDelegate.swift in Sources */,
+				88D97CB825F41F0600461112 /* DescriptionCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,14 +286,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		888516F425F26788000F4270 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				888516F525F26788000F4270 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		888516F925F26789000F4270 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -366,7 +348,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -421,7 +403,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
