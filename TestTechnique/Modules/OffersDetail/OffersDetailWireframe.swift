@@ -13,11 +13,14 @@ final class OffersDetailWireframe {
    private weak var viewController: UIViewController?
     // MARK: - Module setup -
    
-   static func instanciate() -> UIViewController {
+   static func instanciate(item: Offer) -> UIViewController {
       let viewController = OffersDetailViewController()
       let wireframe = OffersDetailWireframe()
       let interactor = OffersDetailInteractor()
-      let presenter = OffersDetailPresenter(view: viewController, interactor: interactor, wireframe: wireframe)
+      let presenter = OffersDetailPresenter(view: viewController,
+                                            interactor: interactor,
+                                            wireframe: wireframe,
+                                            offer: item)
       viewController.presenter = presenter
       wireframe.viewController = viewController
       
