@@ -8,17 +8,19 @@
 import UIKit
 
 class SellerInformationsCollectionViewCell: UICollectionViewCell {
+   
+   private var containerView: UIView = {
+      let view = UIView(frame: .zero)
+      view.translatesAutoresizingMaskIntoConstraints = false
+      view.layer.borderWidth = 1
+      view.layer.borderColor = UIColor.darkGray.cgColor
+      view.layer.cornerRadius = 2
+      return view
+   }()
     
    private var aboutLabel: UILabel = {
-      let paragraphAlignment = NSMutableParagraphStyle()
-      paragraphAlignment.alignment = .justified
       let view = UILabel(frame: .zero)
       view.translatesAutoresizingMaskIntoConstraints = false
-      
-      view.attributedText = NSAttributedString(string: "SIRET: 401059",
-                                               attributes: [.font: UIFont.systemFont(ofSize: 16),
-                                                            .foregroundColor: UIColor.darkGray,
-                                                            .paragraphStyle: paragraphAlignment])
       return view
    }()
    
@@ -28,22 +30,39 @@ class SellerInformationsCollectionViewCell: UICollectionViewCell {
    
    override init(frame: CGRect) {
       super.init(frame: frame)
-      
-      self.addSubview(aboutLabel)
+      self.addSubview(containerView)
+      self.containerView.addSubview(aboutLabel)
       NSLayoutConstraint.activate([
-         aboutLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-         aboutLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+         self.containerView.topAnchor.constraint(equalTo: self.topAnchor, constant: 18),
+         self.containerView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
+         self.containerView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+         self.containerView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 2),
+         self.aboutLabel.centerXAnchor.constraint(equalTo: self.containerView.centerXAnchor),
+         self.aboutLabel.centerYAnchor.constraint(equalTo: self.containerView.centerYAnchor),
       ])
    }
    
 }
 
+extension SellerInformationsCollectionViewCell: CellUpdatable {
+   func update(content: FormattedModelProtocol) {
+      guard let content = content as? OfferDetailsItem,
+         case OfferDetailsItem.sellerInformation(let sellerInformation) = content,
+         let siren = sellerInformation.siren else { return }
+      
+      self.aboutLabel.text = "SIREN : " + siren
+   }
+}
 
-extension SellerInformationsCollectionViewCell: ContentSizable {
-   static func size(with content: String, fitting size: CGSize, at indexPath: IndexPath) -> CGSize {
+extension SellerInformationsCollectionViewCell: CellSizable {
+   static func size(with content: FormattedModelProtocol, fitting size: CGSize, at indexPath: IndexPath) -> CGSize {
+      guard let content = content as? OfferDetailsItem,
+         case OfferDetailsItem.sellerInformation(let sellerInformation) = content,
+         sellerInformation.siren != nil else { return .zero }
+      
       let paragraphAlignment = NSMutableParagraphStyle()
       paragraphAlignment.alignment = .justified
-      let attributedString = NSAttributedString(string: content,
+      let attributedString = NSAttributedString(string: sellerInformation.siren ?? "",
                                                 attributes: [.font: UIFont.systemFont(ofSize: 16),
                                                              .foregroundColor: UIColor.darkGray,
                                                              .paragraphStyle: paragraphAlignment])
@@ -53,6 +72,6 @@ extension SellerInformationsCollectionViewCell: ContentSizable {
                                                  options: [.usesLineFragmentOrigin, .usesFontLeading],
                                                  context: nil).height
       
-      return CGSize(width: size.width, height: height + 40)
+      return CGSize(width: size.width, height: height + 50)
    }
 }

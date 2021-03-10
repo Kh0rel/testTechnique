@@ -16,12 +16,6 @@ class DescriptionCollectionViewCell: UICollectionViewCell {
       label.translatesAutoresizingMaskIntoConstraints = false
       label.textColor = .darkText
       label.numberOfLines = -1
-      
-      label.attributedText = NSAttributedString(string: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.",
-                                                attributes: [.font: UIFont.systemFont(ofSize: 16),
-                                                             .foregroundColor: UIColor.darkGray,
-                                                             .paragraphStyle: paragraphAlignment])
-      
       return label
    }()
    
@@ -34,7 +28,7 @@ class DescriptionCollectionViewCell: UICollectionViewCell {
       self.addSubview(descriptionLabel)
       NSLayoutConstraint.activate([
          descriptionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-         descriptionLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 4),
+         descriptionLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
          descriptionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10)
       ])
       
@@ -42,12 +36,30 @@ class DescriptionCollectionViewCell: UICollectionViewCell {
    
 }
 
-
-extension DescriptionCollectionViewCell: ContentSizable {
-   static func size(with content: String, fitting size: CGSize, at indexPath: IndexPath) -> CGSize {
+extension DescriptionCollectionViewCell: CellUpdatable {
+   func update(content: FormattedModelProtocol) {
+      guard let content = content as? OfferDetailsItem,
+            case OfferDetailsItem.description(let description) = content,
+            let descriptionText = description.descriptionText else { return }
+      
       let paragraphAlignment = NSMutableParagraphStyle()
       paragraphAlignment.alignment = .justified
-      let attributedString = NSAttributedString(string: content,
+      self.descriptionLabel.attributedText = NSAttributedString(string: descriptionText.descriptionFormat,
+                                                attributes: [.font: UIFont.systemFont(ofSize: 16),
+                                                             .foregroundColor: UIColor.darkGray,
+                                                             .paragraphStyle: paragraphAlignment])
+   }
+}
+
+extension DescriptionCollectionViewCell: CellSizable {
+   static func size(with content: FormattedModelProtocol, fitting size: CGSize, at indexPath: IndexPath) -> CGSize {
+      guard let content = content as? OfferDetailsItem,
+            case OfferDetailsItem.description(let description) = content,
+            let descriptionText = description.descriptionText else { return .zero }
+      
+      let paragraphAlignment = NSMutableParagraphStyle()
+      paragraphAlignment.alignment = .justified
+      let attributedString = NSAttributedString(string: descriptionText.descriptionFormat,
                                                 attributes: [.font: UIFont.systemFont(ofSize: 16),
                                                              .foregroundColor: UIColor.darkGray,
                                                              .paragraphStyle: paragraphAlignment])
