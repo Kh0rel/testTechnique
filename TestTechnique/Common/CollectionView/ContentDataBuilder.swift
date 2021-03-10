@@ -10,7 +10,7 @@ import UIKit
 
 struct ContentDataBuilder {
    
-   static private func cellType(for model: FormattedModelProtocol) -> UICollectionViewCell.Type {
+   static func cellType(for model: FormattedModelProtocol) -> UICollectionViewCell.Type {
       
       switch model {
       case OfferListItem.categories(_):

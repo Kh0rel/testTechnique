@@ -11,12 +11,13 @@ import Foundation
 enum Endpoint {
    case categories
    case offers
+   case custom(value: String)
 }
 
 extension Endpoint {
    var method: String {
       switch self {
-      case .categories, .offers: return "GET"
+      case .categories, .offers, .custom(_): return "GET"
       }
    }
    
@@ -24,6 +25,7 @@ extension Endpoint {
       switch self {
       case .categories: return "categories.json"
       case .offers: return "listing.json"
+      case .custom(let value): return value
       }
    }
 }
