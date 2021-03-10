@@ -30,3 +30,39 @@ struct Offer: Codable {
       case siret
    }
 }
+
+// MARK: - Data Protocols extensions
+extension Offer: OfferDetailsHeaderItemProtocol {
+   
+   var imageUrl: String? {
+      return self.image.thumb
+   }
+}
+
+extension Offer: OfferDetailsOfferInformationsProtocol {
+   
+   var titleText: String? {
+      return self.title
+   }
+   
+   var priceText: String? {
+      return String(describing: self.price)
+   }
+   
+   var date: Date? {
+      return self.createdAt
+   }
+}
+
+extension Offer: OfferDetailsDescriptionItemProtocol {
+   
+   var descriptionText: String? {
+      return self.description
+   }
+}
+
+extension Offer: OfferDetailsSellerInformationsProtocol {
+   var siren: String? {
+      return self.siret
+   }
+}
