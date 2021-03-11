@@ -109,7 +109,7 @@ extension LargeContentCollectionViewCell: CellUpdatable {
       self.dateLabel.text = "\(offer.createdAt.humanReadableDate())"
       self.imageView.image = UIImage(named: "no_image")
       self.urgentBanner.isHidden = offer.isUrgent == false
-      if let imageUrl = offer.image.small, let url = URL(string: imageUrl) {
+      if let imageUrl = offer.image.thumb, let url = URL(string: imageUrl) {
          ImageLoader.shared.loadImage(from: url, with: URLSession.shared) {(result) in
             switch result {
             case .success(let image):

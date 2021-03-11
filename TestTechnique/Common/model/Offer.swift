@@ -35,7 +35,7 @@ struct Offer: Codable {
 extension Offer: OfferDetailsHeaderItemProtocol {
    
    var imageUrl: String? {
-      return self.image.thumb
+      return self.image.small
    }
 }
 
