@@ -12,7 +12,7 @@ class HeaderImageCollectionViewCell: UICollectionViewCell {
    var imageView: UIImageView = {
       let view = UIImageView(frame: .zero)
       view.translatesAutoresizingMaskIntoConstraints = false
-      view.contentMode = .redraw
+      view.contentMode = .scaleAspectFit
       view.backgroundColor = .black
       view.image = UIImage(named: "no_image")
       return view

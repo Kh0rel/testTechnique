@@ -68,7 +68,7 @@ extension OffersViewController: OffersViewProtocol {
       self.closeButton.addTarget(self, action: #selector(didCloseButtonPressed), for: .touchUpInside)
       self.view.addSubview(self.closeButton)
       NSLayoutConstraint.activate([
-         self.closeButton.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 12),
+         self.closeButton.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 8),
          self.closeButton.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
          self.closeButton.widthAnchor.constraint(equalToConstant: 40),
          self.closeButton.heightAnchor.constraint(equalTo: self.closeButton.widthAnchor, multiplier: 1.0)
