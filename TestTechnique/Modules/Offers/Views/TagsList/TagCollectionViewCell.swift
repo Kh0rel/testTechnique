@@ -12,7 +12,8 @@ class TagCollectionViewCell: UICollectionViewCell {
    var titleLabel: UILabel = {
       let label = UILabel(frame: .zero)
       label.translatesAutoresizingMaskIntoConstraints = false
-      label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+      label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+      label.textColor = .white
       return label
    }()
     
