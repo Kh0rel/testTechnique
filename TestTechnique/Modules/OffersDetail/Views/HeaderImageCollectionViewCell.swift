@@ -12,7 +12,7 @@ class HeaderImageCollectionViewCell: UICollectionViewCell {
    var imageView: UIImageView = {
       let view = UIImageView(frame: .zero)
       view.translatesAutoresizingMaskIntoConstraints = false
-      view.contentMode = .scaleAspectFit
+      view.contentMode = .redraw
       view.backgroundColor = .black
       view.image = UIImage(named: "no_image")
       return view
@@ -58,6 +58,7 @@ extension HeaderImageCollectionViewCell: CellUpdatable {
          case .success(let image):
             DispatchQueue.main.async { [weak self] in
                guard let self = self else { return }
+               self.imageView.contentMode = .scaleAspectFit
                self.imageView.image = image
             }
          case .failure(let error):
