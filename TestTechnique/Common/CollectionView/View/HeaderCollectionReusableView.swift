@@ -13,6 +13,7 @@ class HeaderCollectionReusableView: UICollectionReusableView {
       let label = UILabel(frame: .zero)
       label.translatesAutoresizingMaskIntoConstraints = false
       label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+      label.textAlignment = .center
       return label
    }()
    
@@ -26,8 +27,9 @@ class HeaderCollectionReusableView: UICollectionReusableView {
       
       self.addSubview(titleLabel)
       NSLayoutConstraint.activate([
-         self.titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12),
-         self.titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+         self.titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+         self.titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+         self.titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor)
       ])
    }
    
